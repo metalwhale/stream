@@ -16,8 +16,7 @@ services:
         # having to modify it in Nginx if we want to change it.
         FLASK: application
     ports:
-      - 80:80
-      - 443:443
+      - 8000:8000
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
     depends_on:
@@ -30,5 +29,5 @@ services:
     environment:
       # Load our flask environment from our .env file.
       - FLASK_ENV=${FLASK_ENV}
-    ports:
-      - 5000:5000
+    expose:
+      - 5000
